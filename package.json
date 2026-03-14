@@ -1,16 +1,18 @@
 {
   "name": "sentinel-api-gateway",
   "version": "1.0.0",
+  "type": "module",
   "description": "Sentinel is a lightweight, high-performance API Gateway built with Express.js. It acts as a reverse proxy that sits in front of backend microservices to manage, authenticate, and monitor incoming API traffic.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.3.1",
     "drizzle-orm": "^0.45.1",
