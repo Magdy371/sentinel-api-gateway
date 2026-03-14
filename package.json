@@ -1,0 +1,13 @@
+{
+  "name": "sentinel-api-gateway",
+  "version": "1.0.0",
+  "description": "Sentinel is a lightweight, high-performance API Gateway built with Express.js. It acts as a reverse proxy that sits in front of backend microservices to manage, authenticate, and monitor incoming API traffic.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
