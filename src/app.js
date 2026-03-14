@@ -2,6 +2,7 @@
 import express from "express";
 //heltmet is a security middleware for express
 import helmet from "helmet";
+import { adminGuard } from "../middlewares/adminGuard.js";
 
 const app = express();
 
@@ -14,5 +15,5 @@ app.use(express.json());
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok", message: "Sentinel Gateway is active" });
 });
-
+app.use("/admin", adminRoutes);
 export default app;
