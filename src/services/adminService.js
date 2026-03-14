@@ -18,3 +18,4 @@ export const createApiKey = async (clientName, role = "user") => {
     .returning();
   return insertRecord;
 };
+export default createApiKey;

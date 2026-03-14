@@ -2,7 +2,7 @@
 import express from "express";
 //heltmet is a security middleware for express
 import helmet from "helmet";
-import { adminGuard } from "../middlewares/adminGuard.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
 

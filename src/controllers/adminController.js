@@ -1,4 +1,4 @@
-import { createApiKey } from "../services/adminService";
+import { createApiKey } from "../services/adminService.js";
 
 export const generateApiKey = async (req, res) => {
   try {
