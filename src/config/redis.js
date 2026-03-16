@@ -1,7 +1,7 @@
 // createClient is used to create a Redis client instance.
 import { createClient } from "redis";
 //used for loading environment variables from a .env file.
-import "dotenv/config";
+import "./env.js";
 
 export const redisClient = createClient({
   socket: {
@@ -16,3 +16,5 @@ redisClient.on("connect", (err) => {
     console.log("Connected to Redis");
   }
 });
+
+export default redisClient

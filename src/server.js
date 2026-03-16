@@ -1,6 +1,6 @@
 import app from "./app.js";
 import { redisClient } from "./config/redis.js";
-import "dotenv/config";
+import "./config/env.js";
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {

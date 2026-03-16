@@ -4,6 +4,6 @@ import { adminGuard } from "../middlewares/adminGuard.js";
 
 const router = Router();
 router.use(adminGuard);
-router.post("/api-keys", generateApiKey);
+router.post("/keys", generateApiKey);
 
 export default router;

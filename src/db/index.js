@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 //this import is used to interact with our PostgreSQL database
 import pkg from "pg";
 //this import is used to load environment variables from a .env file
-import "dotenv/config";
+import "../config/env.js";
 
 //Pool is used to manage a pool of database connections
 // meaning it creates and manages a set of connections to the database
