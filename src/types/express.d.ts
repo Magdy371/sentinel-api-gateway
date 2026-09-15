@@ -1,8 +1,8 @@
-export { }
+export {};
 declare global {
-    namespace Express {
-        interface Request {
-            clientId?: string
-        }
+  namespace Express {
+    interface Request {
+      clientId?: string;
     }
+  }
 }

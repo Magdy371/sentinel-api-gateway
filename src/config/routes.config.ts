@@ -1,8 +1,8 @@
 export interface routeConfig {
-    /** Path prefix matched against the incoming request, e.g. "/api/users". */
-    prefix: string,
-    /** Base URL of the upstream microservice this prefix forwards to. */
-    target: string;
+  /** Path prefix matched against the incoming request, e.g. "/api/users". */
+  prefix: string;
+  /** Base URL of the upstream microservice this prefix forwards to. */
+  target: string;
 }
 
 /**
@@ -12,15 +12,26 @@ export interface routeConfig {
  */
 
 export const routeTable: routeConfig[] = [
-    { prefix: "/api/users", target: process.env.USERS_SERVICE_URL || "http://localhost:4001" },
-    { prefix: "/api/orders", target: process.env.ORDERS_SERVICE_URL || "http://localhost:4002" },
-    { prefix: "/api/inventory", target: process.env.INVENTORY_SERVICE_URL || "http://localhost:4003" },
-]
+  {
+    prefix: "/api/users",
+    target: process.env.USERS_SERVICE_URL || "http://localhost:4001",
+  },
+  {
+    prefix: "/api/orders",
+    target: process.env.ORDERS_SERVICE_URL || "http://localhost:4002",
+  },
+  {
+    prefix: "/api/inventory",
+    target: process.env.INVENTORY_SERVICE_URL || "http://localhost:4003",
+  },
+];
 
 // Longest-prefix-first so "/api/users/admin" can't accidentally match a
 // broader "/api" entry before a more specific one.
-const sortedRoutes = [...routeTable].sort((a,b)=> b.prefix.length - a.prefix.length);
+const sortedRoutes = [...routeTable].sort(
+  (a, b) => b.prefix.length - a.prefix.length,
+);
 
-export function resolveTarget(path:string):routeConfig | undefined {
-    return sortedRoutes.find((route) => path.startsWith(route.prefix));
+export function resolveTarget(path: string): routeConfig | undefined {
+  return sortedRoutes.find((route) => path.startsWith(route.prefix));
 }

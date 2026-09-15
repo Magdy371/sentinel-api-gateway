@@ -1,5 +1,5 @@
-import type { Request, Response, NextFunction } from 'express';
-const METHOD_WITH_BODY  = new Set(["POST","PATCH","PUT"]);
+import type { Request, Response, NextFunction } from "express";
+const METHOD_WITH_BODY = new Set(["POST", "PATCH", "PUT"]);
 
 /**
  * Gateway-level payload sanity checks. Sentinel doesn't know each
@@ -10,19 +10,25 @@ const METHOD_WITH_BODY  = new Set(["POST","PATCH","PUT"]);
  * of this middleware for the rest.
  */
 
-export function payloadGuardMiddleware(req:Request, res:Response, next:NextFunction): void{
-    if(!METHOD_WITH_BODY.has(req.method)){
-        next();
-        return;
-    }
-    const contentType = req.headers["content-type"]
-    const hasBody = req.headers["content-length"] && req.headers["content-length"] !== "0";
-    if(hasBody && (!contentType || !contentType.includes("application/json"))){
-        res.status(415).json({
-            error:"Unsupported Media Type",
-            message:"Sentinel only forwards JSON payloads. Set Content-Type: application/json."
-        });
-        return ;
-    }
+export function payloadGuardMiddleware(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void {
+  if (!METHOD_WITH_BODY.has(req.method)) {
     next();
+    return;
+  }
+  const contentType = req.headers["content-type"];
+  const hasBody =
+    req.headers["content-length"] && req.headers["content-length"] !== "0";
+  if (hasBody && (!contentType || !contentType.includes("application/json"))) {
+    res.status(415).json({
+      error: "Unsupported Media Type",
+      message:
+        "Sentinel only forwards JSON payloads. Set Content-Type: application/json.",
+    });
+    return;
+  }
+  next();
 }
