@@ -16,7 +16,7 @@ This project was built to demonstrate core backend architecture concepts, includ
 
 ## Tech Stack
 
-- **Runtime:** Node.js
+- **Runtime:** bun.js
 - **Framework:** Express.js
 - **Caching & State:** Redis
 - **Testing:** Postman
@@ -25,7 +25,7 @@ This project was built to demonstrate core backend architecture concepts, includ
 
 To run this project locally, you will need:
 
-- Node.js (v18+)
+- bun.js
 - Redis (Easily run via Docker: `docker run --name sentinel-redis -p 6379:6379 -d redis`)
 
 ## Getting Started
